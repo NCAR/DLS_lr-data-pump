@@ -46,7 +46,7 @@ Installation and Use
 1. Checkout files from GitHub
 
 
-        $ git clone git://github.com/UCAR/DLS_lr-data-pump.git
+        $ git clone git@github.com:UCAR/DLS_lr-data-pump.git
 
 
 2. Install a virtualenv start it up,
