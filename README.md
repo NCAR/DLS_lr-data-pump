@@ -1,4 +1,4 @@
-LRDatapump
+lr-data-pump
 ==========
 
 Overview
@@ -22,8 +22,9 @@ This code figures out what is different between the OAI provider and the LR and 
 More information can be found below and in datapump/docs/nsdl_implementation.doc.
 
 
-Features(Differences between https://github.com/jimklo/LRDataPump)
+Features
 --------
+(Differences between https://github.com/jimklo/LRDataPump)
 + Handling of syncing a LR Node and an OAI provider
 + Optional use of setspecs via OAI to keep records published as groups
 + Email summaries when publishing to the LR. Includes errors warnings and summaries
