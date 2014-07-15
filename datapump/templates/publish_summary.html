@@ -1,0 +1,40 @@
+<html>
+	<body>
+	An {{title}} Summary
+	<br/><br/>
+	Published to URL: {{publish_url}}
+	<br/><br/>
+	<i><b>Collection Stats</b></i>
+	<br/></br>
+	Number of Collections: {{collection_count}}<br/>
+	Successful Publishes: {{successful_count}}<br/>
+	{% if unsuccessful_count> 0 %}
+		Unsuccessful Publishes: {{unsuccessful_count}}
+		{% for collection_name in unsuccessful_collections %}
+			<br/>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{collection_name}}
+		{%endfor%}
+	{% endif %}
+	
+	<br/><br/>
+	<i><b>Record Stats</b></i>
+	<br/>
+	{% if new_count>0 %}
+		<br/>
+		New Documents: {{new_count}}
+	{%endif%}
+	{% if updated_count>0 %}
+		<br/>
+		Updated Documents: {{updated_count}}
+	{%endif%}
+	{% if deleted_count>0 %}
+		<br/>
+		Deleted Documents: {{deleted_count}}
+	{%endif%}
+	{% if no_changes_count>0 %}
+		<br/>
+		Documents with no changes: {{no_changes_count}}
+	{%endif%}
+	
+	</body>	
+</html>

@@ -1,0 +1,39 @@
+{
+    "documents": [{
+        "doc_type": "resource_data",
+        "doc_version": "0.49.0",
+        "doc_ID": "urn:learningregistry.org:testing:uuid:C134DD8D-6580-4A68-B456-506B07D5A288",
+        "resource_data_type": "paradata",
+        "active": true,
+        "resource_locator": "http://example.com",
+        "resource_data": {
+            "testing": "this can be ignored"
+        },
+        "identity": {
+            "submitter_type": "agent",
+            "owner": "dfinke@ucar.edu",
+            "curator": "dfinke@ucar.edu"
+        },
+        "TOS": {
+            "submission_TOS": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+        },
+        "payload_schema": ["testing"],
+        "payload_placement": "inline"
+    }, {
+        "doc_ID": "urn:learningregistry.org:testing:uuid:C2879C2E-660C-47A5-8585-6B863D445324",
+        "doc_type": "resource_data",
+        "doc_version": "0.49.0",
+        "replaces": ["urn:learningregistry.org:testing:uuid:C134DD8D-6580-4A68-B456-506B07D5A288"],
+        "resource_data_type": "paradata",
+        "active": true,
+        "identity": {
+            "submitter_type": "agent",
+            "owner": "dfinke@ucar.edu",
+            "curator": "dfinke@ucar.edu"
+        },
+        "TOS": {
+            "submission_TOS": "http://creativecommons.org/publicdomain/zero/1.0/legalcode"
+        },
+        "payload_placement": "none"
+    }]
+}

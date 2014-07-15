@@ -1,0 +1,95 @@
+<html>
+	<body>
+	An {{collection_summary.title}} 
+	{% if collection_summary.collection_name %}
+		for Collection {{collection_summary.collection_name}} 
+    {%endif%}
+	<br/>
+	
+	{% if collection_summary.is_partial_failure() %}
+		Paritally Failed
+	{% elif not collection_summary.has_errors %}
+		 was Successful.
+	{%else%}
+		Failed.
+	{%endif%}
+	<br/>
+	<br/>
+	
+	{%if collection_summary.lr_slice_url %}
+		Published documents can be seen at:<br/>
+		<a href="{{collection_summary.lr_slice_url}}">{{collection_summary.lr_slice_url}}</a>
+		<br/><br/>
+	{% endif %}
+	{%if collection_summary.initial_oai_request_url %}
+		OAI request URL used for this publish:<br/>
+		<a href="{{collection_summary.initial_oai_request_url}}">{{collection_summary.initial_oai_request_url}}</a>
+		<br/><br/>
+	{% endif %}
+	
+	NSDL setSpec: {{collection_summary.collection_id}}
+	<br/><br/>
+	Details:<br/>
+	OAI Record Count: {{collection_summary.oai_count}}
+	
+	{% if collection_summary.create_count %}
+		<br/>
+		Published as New Records: {{collection_summary.lr_published_count}}
+		{% if collection_summary.published_new_error %}
+			 <br/>
+			(Error: supposed to be {{collection_summary.create_count}})
+		{% endif %}
+	{% endif %}
+	
+	{% if collection_summary.update_count %}
+		<br/>
+		Published as Updates: {{collection_summary.lr_updated_count}}
+		{% if collection_summary.published_update_error %}
+			 <br/>
+			(Error: supposed to be {{collection_summary.update_count}})
+		{% endif %}
+	{% endif %}
+	
+	{% if collection_summary.delete_count %}
+	    <br/>
+		Published as Deleted Records: {{collection_summary.lr_deleted_count}}
+		{% if collection_summary.published_delete_error %}
+			 <br/>
+			(Error: supposed to be {{collection_summary.delete_count}})
+		{% endif %}
+	{% endif %}
+	{% if collection_summary.no_change_count %}
+		<br/>
+		No Changes Found: {{collection_summary.no_change_count}}
+	{% endif %}
+	
+	{% set validation_errors = collection_summary.validation_errors %} 
+	{% if validation_errors %}
+		<br/><br/>
+		Validation Errors:
+		{% for error in validation_errors %}
+			<br/>
+			{{error}}
+		{%endfor %}
+	{% endif %}
+	
+	{% if collection_summary.errors %}
+		<br/><br/>
+		Exceptions:
+		{% for error,count in collection_summary.error_groupings().items() %}
+			<br/>
+			{{error}} {% if count>1 %} ({{count}}){%endif%}
+		{%endfor %}
+	{% endif %}
+	
+	{% if collection_summary.notes %}
+		<br/><br/>
+		Notes:
+		{% for note,count in collection_summary.note_groupings().items() %}
+			<br/>
+			{{note}}{% if count>1 %} ({{count}}){%endif%}
+		{%endfor %}
+	{% endif %}
+
+	</body>	
+</html>

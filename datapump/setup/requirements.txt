@@ -1,0 +1,5 @@
+LRSignature==0.1.15
+lxml==3.0
+couchdb==0.8
+Jinja2
+python-dateutil
